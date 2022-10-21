@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="article-entry">
+<h2>{{ noticias_lista.Titulo }}</h2>
+<p>Por {{ noticias_lista.autor }} | {{ noticias_lista.Fecha }}</p> <p>{{ noticias_lista.Descripcion }}</p>
+</div>
+
+<p>
+    {% if noticias_lista.autor == 'Valentin' %}
+        <h1>wolas</h1>
+    {% endif %}
+{{ user.username }}
+{{ noticias_lista.autor }}
+    <a href="{% url 'editar_noticia' noticias_lista.pk %}">Editar</a> |
+    <a href="{% url 'eliminar_noticia' noticias_lista.pk %}">Eliminar</a></p>
+    <a href="{% url 'lista_noticias' %}">Mostrar todos</a>
+    <a href="{% url 'agregar_comentario' noticias_lista.pk %}">Agregar Comentario</a>
+    
+    {% endblock content %}
